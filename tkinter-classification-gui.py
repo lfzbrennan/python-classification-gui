@@ -22,10 +22,7 @@ class CreateDisplay:
 
         self.col = len(self.classes)
 
-        buttons = []
-
-        for i in range(len(self.classes)):
-            buttons.append(Button(self.master, text=self.classes[i], command=lambda: self.change_image(self.classes[i]))).grid(row=0, columnspan=i)
+        buttons = [Button(self.master, text=self.classes[i], command=lambda: self.change_image(self.classes[i])).grid(row=0, columnspan=i) for i in range(self.col)]
 
     def change_image(self, class_):
 
@@ -98,4 +95,3 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     sys.exit()
-
