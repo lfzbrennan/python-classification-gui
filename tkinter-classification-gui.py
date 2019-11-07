@@ -60,13 +60,9 @@ def main(args):
 
     args = parser.parse_args()
 
-    #save_dir = args.save_dir
-    #root_dir = args.root_dir
-
-    # root dir, save dir, class 1, class 2, mode (copy or mv)
-    root_dir = r"/Volumes/Seagate Backup Plus Drive/mf_img/sorted_images/*/*"
-    save_dir = r"/Volumes/Seagate Backup Plus Drive/mf_img/good_or_bad/"
-
+    save_dir = args.save_dir
+    root_dir = args.root_dir
+    
     print("Globbing")
 
     all_images = glob.glob(root_dir)
@@ -82,8 +78,7 @@ def main(args):
     print("Creating GUI")
 
     root = Tk()
-    CreateDisplay(root, save_dir, all_images, CURR_IMG)
-    #CreateDisplay(root, save_dir, all_images, CURR_IMG, class_one=args.class1, class_two=args.class2, mode=args.mode)
+    CreateDisplay(root, save_dir, all_images, CURR_IMG, classes=args.classes, mode=args.mode)
     root.mainloop()
 
 
