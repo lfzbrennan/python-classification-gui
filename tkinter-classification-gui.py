@@ -78,11 +78,9 @@ def main(args):
     random.shuffle(all_images)
     CURR_IMG = all_images[0]
 
-    if not os.path.exists(args.save_dir + "/" + args.class1):
-        os.mkdir(args.save_dir + "/" + args.class1)
-
-    if not os.path.exists(args.save_dir + "/" + args.class2):
-        os.mkdir(args.save_dir + "/" + args.class2)
+    for class_ in args.classes:
+        if not os.path.exists(args.save_dir + "/" + class_):
+            os.mkdir(args.save_dir + "/" + class_)
 
     print("Creating GUI")
 
