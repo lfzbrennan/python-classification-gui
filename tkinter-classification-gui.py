@@ -22,7 +22,7 @@ class CreateDisplay:
 
         self.col = len(self.classes)
 
-        buttons = [Button(self.master, text=self.classes[i], command=lambda: self.change_image(self.classes[i])).grid(row=0, columnspan=i) for i in range(self.col)]
+        buttons = [Button(self.master, text=self.classes[i], command=lambda: self.change_image(self.classes[i])).grid(row=1, column=i) for i in range(self.col)]
 
     def change_image(self, class_):
 
