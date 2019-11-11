@@ -5,6 +5,7 @@ import random
 import os
 from shutil import copyfile
 import argparse
+import sys
 
 
 class CreateDisplay:
@@ -34,12 +35,15 @@ class CreateDisplay:
             os.rename(self.current_image, self.save_dir + "/" + class_ + "/" + path)
         elif self.mode == "copy":
             copyfile(self.current_image, self.save_dir + "/" + class_ + "/" + path)
-
         else:
             raise ValueError('Mode must be set to "move" or "copy"')
-
-        self.current_image = self.images[self.count]
-
+        
+        try:
+            self.current_image = self.images[self.count]
+        except IndexError:
+            print("No more images to process")
+            sys.exit()
+        
         self.display_image()
 
 
