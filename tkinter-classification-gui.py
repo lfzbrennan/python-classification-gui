@@ -3,7 +3,6 @@ from PIL import ImageTk, Image
 import glob
 import random
 import os
-from shutil import copyfile
 import argparse
 import sys
 
